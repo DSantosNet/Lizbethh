@@ -11,13 +11,18 @@
            padding: 0;
            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
        }
-       body {
-           display: flex;
-           justify-content: center;
-           align-items: center;
-           min-height: 100vh;
-           background-color: #e0e6ed;
-       }
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+    background-image: url("IMG/fondo.jpg");
+    background-size: cover;      /* Hace que cubra toda la pantalla */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Opcional */
+}
        .card {
            background: white;
            padding: 30px;
@@ -79,7 +84,7 @@
        }
        .message {
            margin-top: 15px;
-           font-size: 14px;
+           font-size: 20px;
            color: #666;
            font-style: italic;
            min-height: 20px;
@@ -90,8 +95,7 @@
 <div class="card" id="main-card">
 <h1 id="title">¿Quieres salir conmigo? <span class="heart">❤</span></h1>
 <div class="gif-container">
-<!-- Usamos un GIF público de los ositos (Milk y Mocha / Peach y Goma) -->
-<img id="gif" src="perritos.jpg" alt="Ositos tiernos">
+<img id="gif" src="IMG/perritos.jpg" alt="Ositos tiernos">
 </div>
 <div class="btn-container" id="buttons-section">
 <button id="btn-si">¡Sí!</button>
@@ -106,18 +110,16 @@
        const gifImg = document.getElementById('gif');
        const titleText = document.getElementById('title');
        const btnContainer = document.getElementById('buttons-section');
-       // Lista de frases que van apareciendo en orden cada vez que esquiva el "No"
        const frases = [
            "¿Segura?",
            "Piénsalo otra vez",
            "Vamos,añale",
+           "Tus perritos quieren que vayas",
            "Me romperás el corazón 💔",
-           "Estoy empezando a llorar...",
            "Eres cruel 😢"
        ];
        let clickCount = 0;
        function moverBotonNo() {
-           // Cambiar el mensaje en base a las veces que ha intentado darle a "No"
            if (clickCount < frases.length) {
                messageText.textContent = frases[clickCount];
                clickCount++;
@@ -144,11 +146,10 @@
        // Evento cuando finalmente le da al botón "Sí"
        btnSi.addEventListener('click', () => {
            // Cambiar el título
-           titleText.innerHTML = "¡Gooo! Vamos a ver una peli 🎬 <span class='heart'>❤</span>";
-           // Cambiar el GIF por uno de celebración/abrazo
-           gifImg.src = "https://media.tenor.com/wMCBvV7Vv_AAAAAi/mocha-hug.gif";
+           titleText.innerHTML = "Vamos a ver Sultan...Grupo Costumbre jaja mañana <span class='heart'>❤</span>";
+           gifImg.src = "IMG/sultanes.jpg";
            // Cambiar el mensaje de abajo
-           messageText.textContent = "¡Espero que estés emocionada como yo! Nos vemos en la doble.";
+           messageText.textContent = "¡Ya te quiero ver!";
            messageText.style.color = "#333";
            messageText.style.fontWeight = "bold";
            // Ocultar los botones completamente
